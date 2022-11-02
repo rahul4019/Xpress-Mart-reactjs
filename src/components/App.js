@@ -1,11 +1,12 @@
-import Navbar from "./Navbar";
-
+import Navbar from './Navbar';
+import Home from '../pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
-    </div>
+    <>
+      <Navbar />
+      <Home />
+    </>
   );
 }
 
