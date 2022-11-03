@@ -1,7 +1,8 @@
 import React from 'react';
 import ProductCard from '../components/ProductCard';
 
-export default function Home() {
+export default function Home(props) {
+  console.log('Home props: ', props.products);
   return (
     <div className="container-fluid my-4 ">
       <div
