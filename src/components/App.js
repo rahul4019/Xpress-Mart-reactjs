@@ -6,9 +6,10 @@ import HomeContainer from '../containers/HomeContainer';
 import { handleGetAllProducts } from '../services/actions';
 
 class App extends React.Component {
-  componentDidMount() {
+  componentDidMount(){
     console.log('App props: ', this.props);
     this.props.dispatch(handleGetAllProducts());
+    // console.log('after STATE: ', this.props.store.getState());
   }
 
   render() {

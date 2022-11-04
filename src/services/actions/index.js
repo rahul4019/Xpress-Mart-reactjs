@@ -17,6 +17,7 @@ export function handleGetAllProducts() {
       .then((products) => {
         // dispatch an action
         dispatch(addAllProducts(products));
-      });
+      })
+      .catch((err) => console.log(err));
   };
 }

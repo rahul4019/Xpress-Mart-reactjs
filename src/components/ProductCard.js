@@ -1,41 +1,47 @@
 import React from 'react';
+import Ratings from './Ratings';
 
-export default function ProductCard() {
+export default function ProductCard(props) {
+  const {  id,title, img, price,description, ratings  } = props.product;
   return (
     <div
       className="col-sm-12 col-md-6 col-lg-4 col-xl-3  rounded shadow-lg"
-      style={{ width: '15rem' }}
+      style={{ width: '15rem'}}
     >
-      <div className="card overflow-hidden">
+      <div className="card ">
         <img
-          src="https://www.asus.com/media/Odin/Websites/global/Series/9.png"
+          src={`${img}`}
           alt="product-img"
-          className="cart-img-top bg-info"
-          // style={{ width: 96 , height: 350}}
+          className="cart-img-top "
+          style={{ width: '100%', height: '200px'}}
         />
 
         <div className="card-body text-center">
           <div className="mb-2">
-            <h5 className="font-weight-semibold mb-2">
+            <p className="font-weight-semibold mb-2">
               <a href="/" className="text-default mb-2" data-abc="true">
-                Apple iPhone 14 pro
+                {title}
               </a>
-            </h5>
+            </p>
           </div>
 
           <h5 className="mb-0 font-weight-semibold">
-            <small>₹</small>86290
+            <small>₹</small>
+            {price}
           </h5>
 
-          <div className="my-1 " style={{ color: 'orange' }}>
+          {/* <div className="">
             <i className="fa fa-star star checked"></i>
             <i className="fa fa-star star checked"></i>
             <i className="fa fa-star star checked"></i>
             <i className="fa fa-star star checked"></i>
             <i className="fa fa-star star"></i>
-          </div>
+          </div> */}
+          <Ratings ratings={ratings}/>
 
-          <button type="button" className="btn btn-warning bg-cart">
+          
+
+          <button type="button mt-1" className="btn btn-warning btn-sm">
             <i className="fa fa-cart-plus mr-2"></i> Add to cart
           </button>
         </div>

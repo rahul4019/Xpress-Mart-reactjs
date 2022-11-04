@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+import rootReducer from './services/Reducers/index'
 import './styles/index.css';
 import App from './components/App';
-
-import { createStore, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import rootReducer from './services/Reducers/index'
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 console.log('Before STATE', store.getState());
