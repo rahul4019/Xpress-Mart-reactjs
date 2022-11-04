@@ -1,27 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Ratings from './Ratings';
 
 export default function ProductCard(props) {
-  const {  id,title, img, price,description, ratings  } = props.product;
+  const { id, title, img, price, ratings } = props.product;
   return (
     <div
-      className="col-sm-12 col-md-6 col-lg-4 col-xl-3  rounded shadow-lg"
-      style={{ width: '15rem'}}
+      className="col-sm-1 col-md-2 col-lg-3 col-xl-4  rounded shadow mx-2 my-3"
+      style={{ width: '15rem' }}
     >
-      <div className="card ">
+      <div className="card">
         <img
           src={`${img}`}
           alt="product-img"
-          className="cart-img-top "
-          style={{ width: '100%', height: '200px'}}
+          className="cart-img-top rounded"
+          style={{ width: '100%', height: '200px' }}
         />
 
         <div className="card-body text-center">
           <div className="mb-2">
             <p className="font-weight-semibold mb-2">
-              <a href="/" className="text-default mb-2" data-abc="true">
+              <Link
+                to={`/product/${id}`}
+                className="text-default mb-2"
+                data-abc="true"
+              >
                 {title}
-              </a>
+              </Link>
             </p>
           </div>
 
@@ -30,16 +35,7 @@ export default function ProductCard(props) {
             {price}
           </h5>
 
-          {/* <div className="">
-            <i className="fa fa-star star checked"></i>
-            <i className="fa fa-star star checked"></i>
-            <i className="fa fa-star star checked"></i>
-            <i className="fa fa-star star checked"></i>
-            <i className="fa fa-star star"></i>
-          </div> */}
-          <Ratings ratings={ratings}/>
-
-          
+          <Ratings ratings={ratings} />
 
           <button type="button mt-1" className="btn btn-warning btn-sm">
             <i className="fa fa-cart-plus mr-2"></i> Add to cart
