@@ -13,7 +13,7 @@ export default function Product(props) {
   const currentProduct = filteredProductArray[0];
   console.log(currentProduct);
 
-  const { id, title, discription, price, ratings, img } = currentProduct;
+  const { id, title, description, price, ratings, img } = currentProduct;
 
   return (
     <>
@@ -40,7 +40,7 @@ export default function Product(props) {
           </div>
           <div className="col-md-6 rounded  p-2">
             <div className="card-body ">
-              <bold className="card-text">{discription}</bold>
+              <bold className="card-text">{description}</bold>
               <div className="btn-container d-flex justify-content-end mt-5">
                 <button
                   className="edit-btn"

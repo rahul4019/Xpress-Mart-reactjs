@@ -5,4 +5,8 @@ const mapStateToProps = (state) => ({
   products: state.products.products,
 });
 
+const mapDisppatchToProps = (state) => ({
+  products: state.products.products
+})
+
 export default connect(mapStateToProps)(Product);

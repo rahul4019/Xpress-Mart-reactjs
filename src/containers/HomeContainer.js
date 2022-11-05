@@ -5,4 +5,5 @@ const mapStateToProps = (state) => ({
   products: state.products.products,
 });
 
+
 export default connect(mapStateToProps)(Home);
