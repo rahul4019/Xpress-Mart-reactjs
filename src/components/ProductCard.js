@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import Ratings from './Ratings';
 
 export default function ProductCard(props) {
+  const { product, addToCartHandler } = props;
   const { id, title, img, price, ratings } = props.product;
+
   return (
     <div
       className="col-sm-1 col-md-2 col-lg-3 col-xl-4  rounded shadow mx-2 my-3"
@@ -37,7 +39,11 @@ export default function ProductCard(props) {
 
           <Ratings ratings={ratings} />
 
-          <button type="button mt-1" className="btn btn-warning btn-sm">
+          <button
+            type="button mt-1"
+            className="btn btn-warning btn-sm"
+            onClick={() => addToCartHandler(product)}
+          >
             <i className="fa fa-cart-plus mr-2"></i> Add to cart
           </button>
         </div>

@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/navbar.module.css';
 
-export default function Navbar() {
+export default function Navbar(props) {
+  const {cart} = props;
+  console.log('navbar props: ',cart)
   return (
     <nav className={`navbar ${styles.navbar}`}>
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <img
             className={`${styles.logoImg} d-inline-block`}
             src="https://cdn-icons-png.flaticon.com/512/3081/3081648.png"
@@ -18,7 +20,7 @@ export default function Navbar() {
             <strong className={`fs-4 ${styles.firstLetter}`}>X</strong>
             press Mart
           </span>
-        </a>
+        </Link>
 
         <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-md-5 d-flex flex-row">
           <li className="nav-item ms-sm-5 mx-2">
@@ -70,7 +72,7 @@ export default function Navbar() {
               background: '#ff6161 ',
             }}
           >
-            <small className="text-light fw-semibold">9</small>
+            <small className="text-light fw-semibold">{cart.length}</small>
           </div>
         </div>
       </div>

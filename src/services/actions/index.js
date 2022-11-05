@@ -1,10 +1,17 @@
-import { ADD_ALL_PRODUCTS } from '../constants';
+import { ADD_ALL_PRODUCTS, ADD_TO_CART } from '../constants';
 
 // action creators
 export const addAllProducts = (products) => {
   return {
     type: ADD_ALL_PRODUCTS,
     products,
+  };
+};
+
+export const addToCart = (product) => {
+  return {
+    type: ADD_TO_CART,
+    product,
   };
 };
 

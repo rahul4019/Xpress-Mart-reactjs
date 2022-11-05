@@ -7,7 +7,7 @@ import {
   Routes,
 } from 'react-router-dom';
 
-import Navbar from './Navbar';
+import NavbarContainer from '../containers/NavbarContainer';
 import HomeContainer from '../containers/HomeContainer';
 import ProductContainer from '../containers/ProductContainer';
 import AddProduct from '../pages/AddProduct';
@@ -17,9 +17,7 @@ import { handleGetAllProducts } from '../services/actions';
 
 class App extends React.Component {
   componentDidMount() {
-    console.log('App props: ', this.props);
     this.props.dispatch(handleGetAllProducts());
-    // console.log('after STATE: ', this.props.store.getState());
   }
 
   Page404 = () => {
@@ -30,7 +28,7 @@ class App extends React.Component {
     return (
       <>
         <Router>
-          <Navbar />
+          <NavbarContainer />
           <Routes>
             <Route path="/" element={<HomeContainer />} />
             <Route path="/product/:id" element={<ProductContainer />} />

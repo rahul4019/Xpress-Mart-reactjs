@@ -168,7 +168,7 @@ export default function Cart() {
 
                       <div className="d-flex justify-content-between mb-4">
                         <h6 className="text-capitalize">delivery charges </h6>
-                        <h6 className='text-success'>Free</h6>
+                        <h6 className="text-success">Free</h6>
                       </div>
 
                       <div className="d-flex justify-content-between mb-5">
