@@ -22,7 +22,6 @@ export function handleGetAllProducts() {
     fetch(url)
       .then((response) => response.json())
       .then((products) => {
-        // dispatch an action
         dispatch(addAllProducts(products));
       })
       .catch((err) => console.log(err));

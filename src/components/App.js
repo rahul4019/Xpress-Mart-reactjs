@@ -11,7 +11,7 @@ import NavbarContainer from '../containers/NavbarContainer';
 import HomeContainer from '../containers/HomeContainer';
 import ProductContainer from '../containers/ProductContainer';
 import AddProduct from '../pages/AddProduct';
-import Cart from '../pages/Cart';
+import CartContainer from '../containers/CartContainer';
 
 import { handleGetAllProducts } from '../services/actions';
 
@@ -33,7 +33,7 @@ class App extends React.Component {
             <Route path="/" element={<HomeContainer />} />
             <Route path="/product/:id" element={<ProductContainer />} />
             <Route path="/addProduct" element={<AddProduct />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<CartContainer />} />
             <Route path="*" element={this.Page404()} />
           </Routes>
         </Router>

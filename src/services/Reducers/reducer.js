@@ -1,27 +1,26 @@
 import { ADD_ALL_PRODUCTS, ADD_TO_CART } from '../constants';
 
 const initialProductsState = {
-  products: [],
+  allProducts: [],
 };
 
-export function products(state = initialProductsState, action) {
+export function products(state = initialProductsState.allProducts, action) {
   switch (action.type) {
     case ADD_ALL_PRODUCTS:
-      return { ...state, products: action.products };
+      return { ...state, allProducts: action.products };
     default:
       return state;
   }
 }
 
 const initialCartState = {
-  cartItems: [],
+  cart: [],
 };
 
-export function cartItems(state = initialCartState.cartItems, action) {
+export function cart(state = initialCartState.cart, action) {
   switch (action.type) {
     case ADD_TO_CART:
-      console.log('product: ',action.product);
-      return [ ...state, {cartItems: action.product}] ;
+      return [...state, action.product];
 
     default:
       return state;

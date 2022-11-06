@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Home from '../pages/Home';
+import Cart from '../pages/Cart';
 import { addToCart } from '../services/actions';
 
 const mapStateToProps = (state) => ({
@@ -11,4 +11,4 @@ const mapDispatchToProps = (dispatch) => ({
   addToCartHandler: (product) => dispatch(addToCart(product)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

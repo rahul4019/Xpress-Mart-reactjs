@@ -1,14 +1,14 @@
 import React from 'react';
-import ProductCard from '../components/ProductCard'
+import ProductCard from '../components/ProductCard';
 
 export default function Home(props) {
-  const { products, addToCartHandler } = props;
+  const { allProducts, addToCartHandler } = props;
 
   return (
     <div className="container ">
       <div className="d-flex flex-wrap justify-content-around my-4">
-        {products ? (
-          products.map((product) => (
+        {allProducts ? (
+          allProducts.map((product) => (
             <ProductCard
               product={product}
               key={product.id}
