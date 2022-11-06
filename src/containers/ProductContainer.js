@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import Product from '../pages/Product';
 
 const mapStateToProps = (state) => ({
-  products: state.products.products,
+  allProducts: state.products.allProducts,
 });
 
 const mapDisppatchToProps = (state) => ({
-  products: state.products.products
-})
+  products: state.products.products,
+});
 
 export default connect(mapStateToProps)(Product);

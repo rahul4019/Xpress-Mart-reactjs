@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductCard from '../components/ProductCard';
+import styles from '../styles/home.module.css';
 
 export default function Home(props) {
   const { allProducts, addToCartHandler } = props;
@@ -17,9 +18,8 @@ export default function Home(props) {
           ))
         ) : (
           <div
-            className="spinner-border position-absolute top-50 start-50 "
+            className={`spinner-border position-absolute top-50 start-50 ${styles.spinner}`}
             role="status"
-            style={{ width: '3rem', height: '3rem', color: '#f7b030' }}
           ></div>
         )}
       </div>

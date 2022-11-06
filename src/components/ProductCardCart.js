@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/cart.module.css'
 
 export default function ProductCardCart(props) {
   const { title, img, price } = props.product;
@@ -20,8 +21,8 @@ export default function ProductCardCart(props) {
           <a href="#!" className="text-muted">
             <img
               src="https://cdn-icons-png.flaticon.com/512/1632/1632602.png"
-              alt=""
-              style={{ width: '25px' }}
+              alt="delete-icon"
+              className={styles.deleteIcon}
             />
           </a>
         </div>

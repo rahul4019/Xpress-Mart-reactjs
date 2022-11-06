@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Ratings from './Ratings';
+import styles from '../styles/home.module.css';
 
 export default function ProductCard(props) {
   const { product, addToCartHandler } = props;
@@ -8,15 +9,13 @@ export default function ProductCard(props) {
 
   return (
     <div
-      className="col-sm-1 col-md-2 col-lg-3 col-xl-4  rounded shadow mx-2 my-3"
-      style={{ width: '15rem' }}
+      className={`col-sm-1 col-md-2 col-lg-3 col-xl-4  rounded shadow mx-2 my-3 ${styles.productCardWrapper}`}
     >
       <div className="card">
         <img
           src={`${img}`}
           alt="product-img"
-          className="cart-img-top rounded"
-          style={{ width: '100%', height: '200px' }}
+          className={`cart-img-top rounded ${styles.cardImg}`}
         />
 
         <div className="card-body text-center">

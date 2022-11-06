@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/navbar.module.css';
 
 export default function Navbar(props) {
-  const {cart} = props;
-  console.log('navbar props: ',cart)
+  const { cart } = props;
   return (
     <nav className={`navbar ${styles.navbar}`}>
       <div className="container-fluid">
@@ -61,16 +60,7 @@ export default function Navbar(props) {
             />
           </Link>
           <div
-            className="rounded-circle d-flex justify-content-center align-items-center position-absolute  "
-            style={{
-              height: 20,
-              width: 20,
-              maxHeight: 50,
-              maxWidth: 50,
-              right: '-5px',
-              top: '-7px',
-              background: '#ff6161 ',
-            }}
+            className={`rounded-circle d-flex justify-content-center align-items-center position-absolute ${styles.itemsInCart}`}
           >
             <small className="text-light fw-semibold">{cart.length}</small>
           </div>

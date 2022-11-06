@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductCardCart from '../components/ProductCardCart';
+import styles from '../styles/cart.module.css';
 import { Link } from 'react-router-dom';
 
 export default function Cart(props) {
@@ -13,13 +14,12 @@ export default function Cart(props) {
   console.log('total price: ', price);
 
   return (
-    <section className="h-100 h-custom" style={{ background: '#d2c9ff' }}>
+    <section className={`h-100 h-custom ${styles.section}`}>
       <div className="container py-5 h-100 ">
         <div className="row d-flex justify-content-center align-items-center h-100 ">
           <div className="col-12">
             <div
-              className="card card-registration card-registration-2 shadow-lg"
-              style={{ borderRadius: '15px' }}
+              className={`card card-registration card-registration-2 shadow-lg ${styles.card}`}
             >
               <div className="card-body p-0">
                 <div className="row g-0">

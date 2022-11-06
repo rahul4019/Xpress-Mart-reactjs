@@ -18,3 +18,11 @@
 .cartWrapper img {
   width: 40px;
 }
+
+.itemsInCart {
+  height: 20px;
+  width: 20px;
+  right: -5px;
+  top: -7px;
+  background: #ff6161;
+}
