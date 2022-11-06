@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from '../styles/cart.module.css'
+import styles from '../styles/cart.module.css';
 
 export default function ProductCardCart(props) {
+  const { removeFromCartHandler, product } = props;
   const { title, img, price } = props.product;
 
   return (
@@ -23,6 +24,7 @@ export default function ProductCardCart(props) {
               src="https://cdn-icons-png.flaticon.com/512/1632/1632602.png"
               alt="delete-icon"
               className={styles.deleteIcon}
+              onClick={() => removeFromCartHandler(product)}
             />
           </a>
         </div>

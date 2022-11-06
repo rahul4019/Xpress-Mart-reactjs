@@ -4,8 +4,14 @@ import Ratings from './Ratings';
 import styles from '../styles/home.module.css';
 
 export default function ProductCard(props) {
-  const { product, addToCartHandler } = props;
+  let { product, addToCartHandler } = props;
   const { id, title, img, price, ratings } = props.product;
+
+  const addtocart = (product) => {
+    product.key = Math.random();
+    console.log(product.key)
+    addToCartHandler(product);
+  };
 
   return (
     <div
@@ -41,7 +47,7 @@ export default function ProductCard(props) {
           <button
             type="button mt-1"
             className="btn btn-warning btn-sm"
-            onClick={() => addToCartHandler(product)}
+            onClick={() => addtocart(product)}
           >
             <i className="fa fa-cart-plus mr-2"></i> Add to cart
           </button>

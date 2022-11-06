@@ -10,7 +10,7 @@ import {
 import NavbarContainer from '../containers/NavbarContainer';
 import HomeContainer from '../containers/HomeContainer';
 import ProductContainer from '../containers/ProductContainer';
-import AddProduct from '../pages/AddProduct';
+import AddProductContainer from '../containers/AddProductContainer';
 import CartContainer from '../containers/CartContainer';
 
 import { handleGetAllProducts } from '../services/actions';
@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   Page404 = () => {
-    return <h1>404</h1>;
+    return <h1>404 not found!</h1>;
   };
 
   render() {
@@ -32,7 +32,7 @@ class App extends React.Component {
           <Routes>
             <Route path="/" element={<HomeContainer />} />
             <Route path="/product/:id" element={<ProductContainer />} />
-            <Route path="/addProduct" element={<AddProduct />} />
+            <Route path="/addProduct" element={<AddProductContainer />} />
             <Route path="/cart" element={<CartContainer />} />
             <Route path="*" element={this.Page404()} />
           </Routes>

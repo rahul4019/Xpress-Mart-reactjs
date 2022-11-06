@@ -1,17 +1,16 @@
 import React from 'react';
 import ProductCardCart from '../components/ProductCardCart';
 import styles from '../styles/cart.module.css';
-import { Link } from 'react-router-dom';
 
 export default function Cart(props) {
-  const { allProducts, cart, handleAddToCart } = props;
+  console.log(props)
+  const { cartItems, removeFromCartHandler } = props;
+  console.log('cart page: ', props)
 
   let price = 0;
-  for (let i = 0; i < cart.length; i++) {
-    price += cart[i].price;
+  for (let i = 0; i < cartItems.length; i++) {
+    price += cartItems[i].price;
   }
-
-  console.log('total price: ', price);
 
   return (
     <section className={`h-100 h-custom ${styles.section}`}>
@@ -27,8 +26,12 @@ export default function Cart(props) {
                     <div className="p-5">
                       <div className="d-flex justify-content-between align-items-center mb-5"></div>
 
-                      {cart.map((product) => (
-                        <ProductCardCart key={product.id} product={product} />
+                      {cartItems.map((product) => (
+                        <ProductCardCart
+                          key={product.key}
+                          product={product}
+                          removeFromCartHandler={removeFromCartHandler}
+                        />
                       ))}
                     </div>
                   </div>
@@ -40,7 +43,7 @@ export default function Cart(props) {
 
                       <div className="d-flex justify-content-between mb-4">
                         <h6 className="text-capitalize">Items </h6>
-                        <h6>{cart.length}</h6>
+                        <h6>{cartItems.length}</h6>
                       </div>
 
                       <div className="d-flex justify-content-between mb-4">

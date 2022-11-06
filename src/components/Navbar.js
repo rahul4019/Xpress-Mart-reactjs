@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/navbar.module.css';
 
 export default function Navbar(props) {
-  const { cart } = props;
+  const { cartItems } = props;
   return (
     <nav className={`navbar ${styles.navbar}`}>
       <div className="container-fluid">
@@ -62,7 +62,7 @@ export default function Navbar(props) {
           <div
             className={`rounded-circle d-flex justify-content-center align-items-center position-absolute ${styles.itemsInCart}`}
           >
-            <small className="text-light fw-semibold">{cart.length}</small>
+            <small className="text-light fw-semibold">{cartItems.length}</small>
           </div>
         </div>
       </div>

@@ -1,47 +1,104 @@
 import React from 'react';
+import { useState } from 'react';
 
-export default function AddProduct() {
+export default function AddProduct(props) {
+  console.log('add product page: ', props);
+  const { addProduct, allProducts } = props;
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState(0);
+  const [rating, setRating] = useState(0);
+  const [imageUrl, setImageUrl] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const product = {
+      id: allProducts.length+1,
+      title: name,
+      description,
+      price,
+      ratings: rating,
+      img: imageUrl,
+    };
+    addProduct(product);
+  };
+
   return (
-    <div class="container mt-4 col-md-4 border p-3 rounded  shadow-lg">
-      <form>
-        <div class="mb-3">
-          <label for="name" class="form-label">
-            Name
+    <div className="container mt-4 col-md-4 border p-3 rounded  shadow-lg">
+      <div className="d-flex justify-content-center my-2">
+        <h3>Add product</h3>
+      </div>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+            Product Name
           </label>
-          <input type="text" class="form-control" id="name"></input>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            onChange={(e) => setName(e.target.value)}
+          ></input>
         </div>
-        <div class="mb-3">
-          <label for="description" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="description" className="form-label">
             Description
           </label>
-          <input type="text" class="form-control" id="description" required></input>
+          <input
+            type="text"
+            className="form-control"
+            id="description"
+            required
+            onChange={(e) => setDescription(e.target.value)}
+          ></input>
         </div>
 
-        <div class="mb-3">
-          <label for="price" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="price" className="form-label">
             Price
           </label>
-          <input type="text" class="form-control" id="price" required></input>
+          <input
+            type="number"
+            className="form-control"
+            id="price"
+            required
+            onChange={(e) => setPrice(e.target.value)}
+          ></input>
         </div>
 
-        <div class="mb-3">
-          <label for="rating" class="form-label" required>
+        <div className="mb-3">
+          <label htmlFor="rating" className="form-label" required>
             Rating
           </label>
-          <input type="text" class="form-control" id="rating" required></input>
+          <input
+            type="number"
+            min="0"
+            max="5"
+            className="form-control"
+            id="rating"
+            placeholder="1 to 5"
+            required
+            onChange={(e) => setRating(e.target.value)}
+          ></input>
         </div>
 
-        <div class="mb-3">
-          <label for="img" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="img" className="form-label">
             Image URL
           </label>
-          <input type="url" class="form-control" id="img" required></input>
+          <input
+            type="url"
+            className="form-control"
+            id="img"
+            required
+            onChange={(e) => setImageUrl(e.target.value)}
+          ></input>
         </div>
 
         <div className="d-flex justify-content-center">
           <button
             type="submit"
-            class="btn btn-success "
+            className="btn btn-success "
             style={{ width: '50%' }}
           >
             Add
