@@ -6,7 +6,7 @@ import styles from '../styles/product.module.css';
 export default function Product(props) {
   const params = useParams();
   const productId = params.id;
-  const { allProducts } = props;
+  const { allProducts, addToCartHandler } = props;
 
   const filteredProductArray = allProducts.filter(
     (product) => product.id == productId
@@ -40,21 +40,29 @@ export default function Product(props) {
           <div className="col-md-6 rounded  p-2">
             <div className="card-body ">
               <p className="card-text">{description}</p>
-              <div className="btn-container d-flex justify-content-end mt-5">
-                <button className={`${styles.editBtn}`}>
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/420/420181.png"
-                    alt=""
-                    className={styles.btnImg}
-                  />
-                </button>
-                <button className={styles.editBtn}>
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/1632/1632602.png"
-                    alt=""
-                    className={styles.btnImg}
-                  />
-                </button>
+              <div className="btn-container d-flex justify-content-between mt-5">
+                <div
+                  className="btn btn-warning"
+                  onClick={() => addToCartHandler(currentProduct)}
+                >
+                  <i className="fa fa-cart-plus mr-2"></i> Add to cart
+                </div>
+                <div className="btnWrapper">
+                  <button className={`${styles.editBtn}`}>
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/420/420181.png"
+                      alt=""
+                      className={styles.btnImg}
+                    />
+                  </button>
+                  <button className={styles.editBtn}>
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/1632/1632602.png"
+                      alt=""
+                      className={styles.btnImg}
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
