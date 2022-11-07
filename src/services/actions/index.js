@@ -1,4 +1,11 @@
-import { ADD_ALL_PRODUCTS, ADD_TO_CART, ADD_PRODUCT, REMOVE_FROM_CART } from '../constants';
+import {
+  ADD_ALL_PRODUCTS,
+  ADD_TO_CART,
+  ADD_PRODUCT,
+  REMOVE_FROM_CART,
+  UPDATE_PRODUCT,
+  DELETE_PRODUCT,
+} from '../constants';
 
 // action creators
 export const addAllProducts = (products) => {
@@ -26,8 +33,22 @@ export const removeFromCart = (product) => {
   return {
     type: REMOVE_FROM_CART,
     product,
-  }
-}
+  };
+};
+
+export const updateProduct = (product) => {
+  return {
+    type: UPDATE_PRODUCT,
+    product,
+  };
+};
+
+export const deleteProduct = (product) => {
+  return {
+    type: DELETE_PRODUCT,
+    product,
+  };
+};
 
 export function handleGetAllProducts() {
   const url = 'https://my-json-server.typicode.com/rahul4019/server/products';

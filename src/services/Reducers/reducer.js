@@ -3,6 +3,8 @@ import {
   ADD_TO_CART,
   ADD_PRODUCT,
   REMOVE_FROM_CART,
+  UPDATE_PRODUCT,
+  DELETE_PRODUCT,
 } from '../constants';
 
 const initialProductsState = {
@@ -13,8 +15,26 @@ export function products(state = initialProductsState.allProducts, action) {
   switch (action.type) {
     case ADD_ALL_PRODUCTS:
       return { ...state, allProducts: action.products };
+
     case ADD_PRODUCT:
       return { ...state, allProducts: [action.product, ...state.allProducts] };
+
+    case UPDATE_PRODUCT:
+      const filteredProducts = state.allProducts.filter(
+        (product) => product.id !== action.product.id
+      );
+      return { ...state, allProducts: [action.product, ...filteredProducts] };
+
+    case DELETE_PRODUCT:
+      const productsAfterDeletion = state.allProducts.filter(
+        (product) => product.id !== action.product.id
+      );
+      console.log('products after deletion array: ', productsAfterDeletion);
+      return {
+        ...state,
+        allProducts: [...productsAfterDeletion],
+      };
+
     default:
       return state;
   }
@@ -33,7 +53,7 @@ export function cart(state = initialCartState, action) {
       const filteredCartItems = state.cartItems.filter(
         (product) => product.id !== action.product.id
       );
-      
+
       return { ...state, cartItems: filteredCartItems };
 
     default:
