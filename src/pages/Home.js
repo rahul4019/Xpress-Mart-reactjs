@@ -9,9 +9,9 @@ export default function Home(props) {
   let sortedProducts;
 
   if (allProducts) {
-    unSortedProducts = [...allProducts];
-    const toBeSorted = [...allProducts];
-    sortedProducts = toBeSorted.sort(
+    unSortedProducts = [...allProducts]; // unsorted array of products
+    const toBeSorted = [...allProducts]; 
+    sortedProducts = toBeSorted.sort(   // sorted array of products
       (product1, product2) => product1.price - product2.price
     );
   }
@@ -21,7 +21,7 @@ export default function Home(props) {
       <div className="d-flex flex-wrap justify-content-around my-5 positon-relative">
         {unSortedProducts && sortedProducts ? (
           <AllProductsWrapper
-            unSortedProducts={unSortedProducts}
+            unSortedProducts={unSortedProducts} 
             sortedProducts={sortedProducts}
             addToCartHandler={addToCartHandler}
             cartItems={cartItems}

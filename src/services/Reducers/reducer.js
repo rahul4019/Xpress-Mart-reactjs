@@ -13,6 +13,7 @@ const initialProductsState = {
   allProducts: [],
 };
 
+// products reducer
 export function products(state = initialProductsState.allProducts, action) {
   switch (action.type) {
     case ADD_ALL_PRODUCTS:
@@ -45,6 +46,7 @@ const initialCartState = {
   cartItems: [],
 };
 
+// cart reducer
 export function cart(state = initialCartState, action) {
   switch (action.type) {
     case ADD_TO_CART:

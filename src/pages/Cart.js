@@ -3,7 +3,6 @@ import ProductCardCart from '../components/ProductCardCart';
 import styles from '../styles/cart.module.css';
 
 export default function Cart(props) {
-  console.log('Cart page: ', props);
   const {
     cartItems,
     removeFromCartHandler,
@@ -11,6 +10,7 @@ export default function Cart(props) {
     decreaseQtyHandler,
   } = props;
 
+  // calculating price based on products and their quantities
   let price = 0;
   for (let i = 0; i < cartItems.length; i++) {
     price += cartItems[i].price * cartItems[i].qty;
@@ -78,7 +78,6 @@ export default function Cart(props) {
       style={{ height: '80vh' }}
     >
       <img
-        // src="https://cdn-icons-png.flaticon.com/512/4175/4175027.png"
         src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png"
         alt=""
         style={{ width: '150px' }}

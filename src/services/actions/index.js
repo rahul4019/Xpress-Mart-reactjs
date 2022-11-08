@@ -6,10 +6,11 @@ import {
   UPDATE_PRODUCT,
   DELETE_PRODUCT,
   INCREASE_QTY,
-  DECREASE_QTY
+  DECREASE_QTY,
 } from '../constants';
 
 // action creators
+
 export const addAllProducts = (products) => {
   return {
     type: ADD_ALL_PRODUCTS,
@@ -66,6 +67,7 @@ export const decreaseQty = (product) => {
   };
 };
 
+// makes api call to fetch data
 export function handleGetAllProducts() {
   const url = 'https://my-json-server.typicode.com/rahul4019/server/products';
 
@@ -73,6 +75,7 @@ export function handleGetAllProducts() {
     fetch(url)
       .then((response) => response.json())
       .then((products) => {
+        // dispatches action
         dispatch(addAllProducts(products));
       })
       .catch((err) => console.log(err));

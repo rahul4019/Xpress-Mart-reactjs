@@ -3,7 +3,6 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 
 export default function AddProduct(props) {
-  console.log('add product page: ', props);
   const { addProduct, allProducts } = props;
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');

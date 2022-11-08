@@ -59,11 +59,15 @@ export default function Navbar(props) {
               alt="cart"
             />
           </Link>
-          <div
-            className={`rounded-circle d-flex justify-content-center align-items-center position-absolute ${styles.itemsInCart}`}
-          >
-            <small className="text-light fw-semibold">{cartItems.length}</small>
-          </div>
+          {cartItems.length > 0 ? (
+            <div
+              className={`rounded-circle d-flex justify-content-center align-items-center position-absolute ${styles.itemsInCart}`}
+            >
+              <small className="text-light fw-semibold">
+                {cartItems.length}
+              </small>
+            </div>
+          ) : null}
         </div>
       </div>
     </nav>

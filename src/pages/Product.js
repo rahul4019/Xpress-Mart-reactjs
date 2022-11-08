@@ -38,11 +38,7 @@ export default function Product(props) {
   }
 
   const { title, description, price, ratings, img, id } = currentProduct;
-
-  const handleEdit = () => {
-    setEdit(!edit);
-  };
-
+  
   const productToBeUpdated = {
     id: currentProduct.id,
     img: currentProduct.img,
@@ -50,6 +46,10 @@ export default function Product(props) {
     description: updateDescription,
     price: updatePrice,
     ratings: updateRating,
+  };
+  
+  const handleEdit = () => {
+    setEdit(!edit);
   };
 
   const handleAddToCart = (currentProduct) => {
