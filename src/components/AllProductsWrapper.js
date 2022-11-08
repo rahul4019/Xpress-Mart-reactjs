@@ -7,23 +7,20 @@ export default function (props) {
   const { unSortedProducts, sortedProducts, addToCartHandler } = props;
   const [sortByPrice, setSortByPrice] = useState(false);
 
-  const handleSort = () => {
-    setSortByPrice(!sortByPrice);
-  };
-
   return (
     <>
-      {/* <div className="d-flex justify-content-end px-4 mt-4 position-absolute"> */}
       <button
         type="button"
         className={`btn btn-light border border-secondary border-2 rounded-pill fw-semibold position-absolute  ${styles.sortBtn}`}
-        onClick={() => {
-          handleSort();
-        }}
       >
-        Sort by price
+        <span onClick={() => setSortByPrice(true)}>Sort by price</span>
+        {sortByPrice ? (
+          <i
+            className="fa-regular fa-circle-xmark ms-2 "
+            onClick={() => setSortByPrice(false)}
+          ></i>
+        ) : null}
       </button>
-      {/* </div> */}
       {sortByPrice
         ? sortedProducts.map((product) => (
             <ProductCard

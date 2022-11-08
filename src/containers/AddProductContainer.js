@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AddProduct from '../pages/AddProduct';
-import { addProduct, addToCart } from '../services/actions';
+import { addProduct } from '../services/actions';
 
 const mapStateToProps = (state) => ({
   allProducts: state.products.allProducts,

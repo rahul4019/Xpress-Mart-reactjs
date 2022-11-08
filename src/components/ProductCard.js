@@ -2,15 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Ratings from './Ratings';
 import styles from '../styles/home.module.css';
+import toast from 'react-hot-toast';
 
 export default function ProductCard(props) {
   let { product, addToCartHandler } = props;
   const { id, title, img, price, ratings } = props.product;
 
   const addtocart = (product) => {
-    product.key = Math.random();
-    console.log(product.key)
     addToCartHandler(product);
+    toast.success('Added to cart', {
+      position: 'top-right',
+      style: {
+        borderRadius: '10px',
+        background: '#363636',
+        color: '#fff',
+      },
+    });
   };
 
   return (

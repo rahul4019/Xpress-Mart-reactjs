@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function AddProduct(props) {
   console.log('add product page: ', props);
@@ -13,7 +14,7 @@ export default function AddProduct(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const product = {
-      id: allProducts.length+1,
+      id: allProducts.length + 1,
       title: name,
       description,
       price,
@@ -21,6 +22,14 @@ export default function AddProduct(props) {
       img: imageUrl,
     };
     addProduct(product);
+    toast.success('Product added', {
+      position: 'top-right',
+      style: {
+        borderRadius: '10px',
+        background: '#363636',
+        color: '#fff',
+      },
+    });
   };
 
   return (

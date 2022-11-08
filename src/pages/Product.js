@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Navigate, useParams } from 'react-router-dom';
 import Ratings from '../components/Ratings';
 import styles from '../styles/product.module.css';
@@ -49,8 +50,40 @@ export default function Product(props) {
     ratings: updateRating,
   };
 
+  const handleAddToCart = (currentProduct) => {
+    addToCartHandler(currentProduct);
+    toast.success('Added to cart', {
+      position: 'top-right',
+      style: {
+        borderRadius: '10px',
+        background: '#363636',
+        color: '#fff',
+      },
+    });
+  };
+
   const handleUpdateButton = (productToBeUpdated) => {
     updateProductHandler(productToBeUpdated);
+    toast.success('Updated successfully!', {
+      position: 'top-right',
+      style: {
+        borderRadius: '10px',
+        background: '#363636',
+        color: '#fff',
+      },
+    });
+  };
+
+  const handleDeleteProduct = (currentProduct) => {
+    deleteProductHandler(currentProduct);
+    toast.success('Deleted successfully!', {
+      position: 'top-right',
+      style: {
+        borderRadius: '10px',
+        background: '#363636',
+        color: '#fff',
+      },
+    });
   };
 
   return (
@@ -153,7 +186,7 @@ export default function Product(props) {
                   <div className="btn-container d-flex justify-content-between mt-5">
                     <div
                       className="btn btn-warning"
-                      onClick={() => addToCartHandler(currentProduct)}
+                      onClick={() => handleAddToCart(currentProduct)}
                     >
                       <i className="fa fa-cart-plus mr-2"></i> Add to cart
                     </div>
@@ -170,7 +203,7 @@ export default function Product(props) {
                       </button>
                       <button
                         className={styles.editBtn}
-                        onClick={() => deleteProductHandler(currentProduct)}
+                        onClick={() => handleDeleteProduct(currentProduct)}
                       >
                         <img
                           src="https://cdn-icons-png.flaticon.com/512/1632/1632602.png"
