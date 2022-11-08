@@ -3,7 +3,7 @@ import AllProductsWrapper from '../components/AllProductsWrapper';
 import styles from '../styles/home.module.css';
 
 export default function Home(props) {
-  const { allProducts, addToCartHandler } = props;
+  const { allProducts, addToCartHandler, cartItems } = props;
 
   let unSortedProducts;
   let sortedProducts;
@@ -24,6 +24,7 @@ export default function Home(props) {
             unSortedProducts={unSortedProducts}
             sortedProducts={sortedProducts}
             addToCartHandler={addToCartHandler}
+            cartItems={cartItems}
           />
         ) : (
           <div

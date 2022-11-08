@@ -5,19 +5,36 @@ import styles from '../styles/home.module.css';
 import toast from 'react-hot-toast';
 
 export default function ProductCard(props) {
-  let { product, addToCartHandler } = props;
+  let { product, addToCartHandler, cartItems } = props;
   const { id, title, img, price, ratings } = props.product;
 
-  const addtocart = (product) => {
-    addToCartHandler(product);
-    toast.success('Added to cart', {
-      position: 'top-right',
-      style: {
-        borderRadius: '10px',
-        background: '#363636',
-        color: '#fff',
-      },
-    });
+  const handleAddToCart = (product) => {
+    const filteredCartItems = cartItems.filter(
+      (item) => item.id === product.id
+    );
+    if (filteredCartItems.length > 0) {
+      toast.error('Product already in cart', {
+        position: 'top-right',
+        style: {
+          borderRadius: '10px',
+          background: '#363636',
+          color: '#fff',
+        },
+      });
+      return null;
+    } else {
+      product.key = product.id;
+      product.qty = 1;
+      addToCartHandler(product);
+      toast.success('Added to cart', {
+        position: 'top-right',
+        style: {
+          borderRadius: '10px',
+          background: '#363636',
+          color: '#fff',
+        },
+      });
+    }
   };
 
   return (
@@ -54,7 +71,7 @@ export default function ProductCard(props) {
           <button
             type="button mt-1"
             className="btn btn-warning btn-sm"
-            onClick={() => addtocart(product)}
+            onClick={() => handleAddToCart(product)}
           >
             <i className="fa fa-cart-plus mr-2"></i> Add to cart
           </button>

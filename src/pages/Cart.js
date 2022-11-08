@@ -3,17 +3,23 @@ import ProductCardCart from '../components/ProductCardCart';
 import styles from '../styles/cart.module.css';
 
 export default function Cart(props) {
-  console.log(props)
-  const { cartItems, removeFromCartHandler } = props;
-  console.log('cart page: ', props)
+  console.log('Cart page: ', props);
+  const {
+    cartItems,
+    removeFromCartHandler,
+    increaseQtyHandler,
+    decreaseQtyHandler,
+  } = props;
 
   let price = 0;
   for (let i = 0; i < cartItems.length; i++) {
-    price += cartItems[i].price;
+    price += cartItems[i].price * cartItems[i].qty;
   }
 
-  return (
-    <section className={`h-100 h-custom ${styles.section}`}>
+  const noOfCartItems = cartItems.length;
+
+  return noOfCartItems > 0 ? (
+    <section className={`h-100 h-custom `}>
       <div className="container py-5 h-100 ">
         <div className="row d-flex justify-content-center align-items-center h-100 ">
           <div className="col-12">
@@ -31,6 +37,8 @@ export default function Cart(props) {
                           key={product.key}
                           product={product}
                           removeFromCartHandler={removeFromCartHandler}
+                          increaseQtyHandler={increaseQtyHandler}
+                          decreaseQtyHandler={decreaseQtyHandler}
                         />
                       ))}
                     </div>
@@ -64,5 +72,18 @@ export default function Cart(props) {
         </div>
       </div>
     </section>
+  ) : (
+    <div
+      className="d-flex flex-column  justify-content-center align-items-center"
+      style={{ height: '80vh' }}
+    >
+      <img
+        // src="https://cdn-icons-png.flaticon.com/512/4175/4175027.png"
+        src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png"
+        alt=""
+        style={{ width: '150px' }}
+      />
+      <h3 className="text-danger">Your cart is empty!</h3>
+    </div>
   );
 }

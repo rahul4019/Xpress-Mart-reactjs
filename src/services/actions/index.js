@@ -5,6 +5,8 @@ import {
   REMOVE_FROM_CART,
   UPDATE_PRODUCT,
   DELETE_PRODUCT,
+  INCREASE_QTY,
+  DECREASE_QTY
 } from '../constants';
 
 // action creators
@@ -46,6 +48,20 @@ export const updateProduct = (product) => {
 export const deleteProduct = (product) => {
   return {
     type: DELETE_PRODUCT,
+    product,
+  };
+};
+
+export const increaseQty = (product) => {
+  return {
+    type: INCREASE_QTY,
+    product,
+  };
+};
+
+export const decreaseQty = (product) => {
+  return {
+    type: DECREASE_QTY,
     product,
   };
 };

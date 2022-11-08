@@ -4,7 +4,8 @@ import ProductCard from './ProductCard';
 import styles from '../styles/home.module.css';
 
 export default function (props) {
-  const { unSortedProducts, sortedProducts, addToCartHandler } = props;
+  const { unSortedProducts, sortedProducts, addToCartHandler, cartItems } =
+    props;
   const [sortByPrice, setSortByPrice] = useState(false);
 
   return (
@@ -27,6 +28,7 @@ export default function (props) {
               product={product}
               key={product.id}
               addToCartHandler={addToCartHandler}
+              cartItems={cartItems}
             />
           ))
         : unSortedProducts.map((product) => (
@@ -34,6 +36,7 @@ export default function (props) {
               product={product}
               key={product.id}
               addToCartHandler={addToCartHandler}
+              cartItems={cartItems}
             />
           ))}
     </>

@@ -5,6 +5,8 @@ import {
   REMOVE_FROM_CART,
   UPDATE_PRODUCT,
   DELETE_PRODUCT,
+  INCREASE_QTY,
+  DECREASE_QTY,
 } from '../constants';
 
 const initialProductsState = {
@@ -29,7 +31,6 @@ export function products(state = initialProductsState.allProducts, action) {
       const productsAfterDeletion = state.allProducts.filter(
         (product) => product.id !== action.product.id
       );
-      console.log('products after deletion array: ', productsAfterDeletion);
       return {
         ...state,
         allProducts: [...productsAfterDeletion],
@@ -53,8 +54,26 @@ export function cart(state = initialCartState, action) {
       const filteredCartItems = state.cartItems.filter(
         (product) => product.id !== action.product.id
       );
-
       return { ...state, cartItems: filteredCartItems };
+
+    case INCREASE_QTY:
+      for (let product of state.cartItems) {
+        if (product.id === action.product.id) {
+          product.qty += 1;
+        }
+      }
+      return { ...state, cartItems: [...state.cartItems] };
+
+    case DECREASE_QTY:
+      for (let product of state.cartItems) {
+        if (product.id === action.product.id) {
+          product.qty -= 1;
+        }
+      }
+      return {
+        ...state,
+        cartItems: [...state.cartItems],
+      };
 
     default:
       return state;

@@ -4,6 +4,7 @@ import { addToCart, updateProduct, deleteProduct } from '../services/actions';
 
 const mapStateToProps = (state) => ({
   allProducts: state.products.allProducts,
+  cartItems: state.cart.cartItems,
 });
 
 const mapDisppatchToProps = (dispatch) => ({

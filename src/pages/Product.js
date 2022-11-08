@@ -15,7 +15,9 @@ export default function Product(props) {
     addToCartHandler,
     updateProductHandler,
     deleteProductHandler,
+    cartItems,
   } = props;
+
 
   // extracting current product from the allproducts array
   const filteredProductArray = allProducts.filter(
@@ -35,7 +37,7 @@ export default function Product(props) {
     return <Navigate to="/" />;
   }
 
-  const { title, description, price, ratings, img } = currentProduct;
+  const { title, description, price, ratings, img, id } = currentProduct;
 
   const handleEdit = () => {
     setEdit(!edit);
@@ -51,15 +53,32 @@ export default function Product(props) {
   };
 
   const handleAddToCart = (currentProduct) => {
-    addToCartHandler(currentProduct);
-    toast.success('Added to cart', {
-      position: 'top-right',
-      style: {
-        borderRadius: '10px',
-        background: '#363636',
-        color: '#fff',
-      },
-    });
+    const filteredCartItems = cartItems.filter(
+      (item) => item.id === currentProduct.id
+    );
+    if (filteredCartItems.length > 0) {
+      toast.error('Product already in cart', {
+        position: 'top-right',
+        style: {
+          borderRadius: '10px',
+          background: '#363636',
+          color: '#fff',
+        },
+      });
+      return null;
+    } else {
+      currentProduct.key = id;
+      currentProduct.qty = 1;
+      addToCartHandler(currentProduct);
+      toast.success('Added to cart', {
+        position: 'top-right',
+        style: {
+          borderRadius: '10px',
+          background: '#363636',
+          color: '#fff',
+        },
+      });
+    }
   };
 
   const handleUpdateButton = (productToBeUpdated) => {
