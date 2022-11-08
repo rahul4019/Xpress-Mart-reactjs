@@ -5,7 +5,7 @@ import styles from '../styles/navbar.module.css';
 export default function Navbar(props) {
   const { cartItems } = props;
   return (
-    <nav className={`navbar ${styles.navbar}`}>
+    <nav className={`navbar ${styles.navbar} fixed-top`}>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <img

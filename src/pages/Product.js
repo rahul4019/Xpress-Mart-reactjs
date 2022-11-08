@@ -58,7 +58,7 @@ export default function Product(props) {
     );
     if (filteredCartItems.length > 0) {
       toast.error('Product already in cart', {
-        position: 'top-right',
+        position: 'top-center',
         style: {
           borderRadius: '10px',
           background: '#363636',
@@ -71,7 +71,7 @@ export default function Product(props) {
       currentProduct.qty = 1;
       addToCartHandler(currentProduct);
       toast.success('Added to cart', {
-        position: 'top-right',
+        position: 'top-center',
         style: {
           borderRadius: '10px',
           background: '#363636',
@@ -84,7 +84,7 @@ export default function Product(props) {
   const handleUpdateButton = (productToBeUpdated) => {
     updateProductHandler(productToBeUpdated);
     toast.success('Updated successfully!', {
-      position: 'top-right',
+      position: 'top-center',
       style: {
         borderRadius: '10px',
         background: '#363636',
@@ -96,7 +96,7 @@ export default function Product(props) {
   const handleDeleteProduct = (currentProduct) => {
     deleteProductHandler(currentProduct);
     toast.success('Deleted successfully!', {
-      position: 'top-right',
+      position: 'top-center',
       style: {
         borderRadius: '10px',
         background: '#363636',

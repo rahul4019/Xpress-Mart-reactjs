@@ -22,7 +22,7 @@ export default function AddProduct(props) {
     };
     addProduct(product);
     toast.success('Product added', {
-      position: 'top-right',
+      position: 'top-center',
       style: {
         borderRadius: '10px',
         background: '#363636',
